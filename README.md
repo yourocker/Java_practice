@@ -1,3 +1,3 @@
 # Java_practice
 
-### Java practice Maxima IT Schooll 2021-2022
+### Java practice Maxima IT School 2021-2022
