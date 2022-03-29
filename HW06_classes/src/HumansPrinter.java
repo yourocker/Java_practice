@@ -2,7 +2,7 @@ public class HumansPrinter {
     void print(Human[] humans) {
         System.out.printf("%22s|%10s|\n", "Имя", "Возраст ");
         for (int i = 0; i < humans.length; i++) {
-            System.out.printf("%22s|%10s|\n", humans[i].name, humans[i].age);
+            System.out.printf("%22s|%10s|\n", humans[i].name, humans[i].getAge() );
         }
     }
 

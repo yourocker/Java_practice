@@ -3,7 +3,7 @@ public class HumansStatistic {
         int ages[] = new int[maxAge];
 
         for (int i = 0; i < humans.length; i++) {
-            int currentAge = humans[i].age;
+            int currentAge = humans[i].getAge();
             ages[currentAge]++;
         }
 

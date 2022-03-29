@@ -1,9 +1,21 @@
 public class Human {
     String name;
-    int age;
+    private int age;
 
     Human(String Name, int Age) {
         name = Name;
-        age = Age;
+        setAge(Age);
+    }
+
+    int getAge() {
+        return age;
+    }
+
+    void setAge(int Age) {
+        if (Age <= 0) {
+            age = 0;
+        } else {
+            age = Age;
+        }
     }
 }
