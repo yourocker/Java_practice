@@ -1,5 +1,3 @@
-import com.sun.org.apache.xalan.internal.res.XSLTErrorResources;
-
 public class Driver {
     private String name;
     private int experience;
