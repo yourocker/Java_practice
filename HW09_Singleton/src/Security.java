@@ -1,13 +1,27 @@
 public class Security {
-    private final int MAX_USERS_COUNT = 5;
+    //статическое глобальное поле для хранения единственного экземпляра класса
+    private static Security instance;
 
-    private User[] users;
-    private int usersCount;
+    //статический метод, возвращает единственный экземпляр класса
+    public static Security getInstance() {
+        return instance;
+    }
 
-    public Security() {
+    //статический инициализатор
+    static {
+        instance = new Security();
+    }
+
+    //конструктор приватный
+    private Security() {
         this.users = new User[MAX_USERS_COUNT];
         this.usersCount = 0;
     }
+
+    private final int MAX_USERS_COUNT = 5;
+    private User[] users;
+
+    private int usersCount;
 
     public void signUp(String email, String password) {
         if (usersCount < MAX_USERS_COUNT) {
