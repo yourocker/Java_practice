@@ -8,18 +8,11 @@ public class Main {
 
     samsungRC.setTV(samsung);
 
-    Channel chList = new Channel();
+    Channel first = new Channel("первый", 1);
 
-    chList.addCh(1);
-    chList.addCh(2);
-    chList.addCh(3);
-    chList.addCh(4);
-    chList.addCh(5);
-    chList.addCh(6);
-    chList.addCh(7);
-    chList.addCh(8);
-    chList.addCh(9);
-    chList.addCh(10);
-    chList.addCh(11);
+    TVShow sh1 = new TVShow("Новости", first);
+    TVShow sh1 = new TVShow("Опять новости", first);
+    TVShow sh1 = new TVShow("Вечерний чёрт", first);
+    TVShow sh1 = new TVShow("Путин царь", first);
     }
 }

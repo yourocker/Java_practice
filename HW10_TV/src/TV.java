@@ -5,8 +5,23 @@ public class TV {
     private Channel channel;
     private RemoteController remoteController;
 
-    private Channel[] channels;
     private int currentChannel;
+
+    private int[] channels;
+    private int maxChannels;
+
+    //add the new channel at channels list
+    public void addCh(int channel) {
+        if (channels.length == maxChannels) {
+            int[] newChannels = new int[channels.length + 1];
+            for (int i = 0; i < channels.length; i++) {
+                newChannels[i] = channels[i];
+            }
+            this.channels = newChannels;
+        }
+        channels[maxChannels] = channel;
+        maxChannels++;
+    }
 
     public void setRemoteController(RemoteController remoteController) {
         if (this.remoteController == null) {
