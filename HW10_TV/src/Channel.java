@@ -1,29 +1,22 @@
 public class Channel {
-    private static final int INITIAL_SIZE = 10;
-
-    private String channelName;
-    private int numberOfChannel;
-
-    private TV tv;
+    private int num;
+    private String name;
     private TVShow tvShow;
 
-    public Channel(String channelName, int numberOfChannel, TV tv, TVShow tvShow) {
-        this.channelName = channelName;
-        this.numberOfChannel = numberOfChannel;
-        this.tv = tv;
-        this.tvShow = tvShow;
+    public Channel(int num, String name) {
+        this.num = num;
+        this.name = name;
     }
 
-    public Channel(String channelName, int numberOfChannel) {
-        this.channelName = channelName;
-        this.numberOfChannel = numberOfChannel;
+    public int getNum() {
+        return num;
     }
 
-    public String getChannelName() {
-        return channelName;
+    public String getName() {
+        return name;
     }
 
-    public int getNumberOfChannel() {
-        return numberOfChannel;
+    public TVShow getTvShow() {
+        return tvShow;
     }
 }

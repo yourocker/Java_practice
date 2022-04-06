@@ -1,5 +1,4 @@
 public class Main {
-
     public static void main(String[] args) {
         Driver anatoly = new Driver("Анатолий", 30);
         Driver viktor = new Driver("Виктор", 10);

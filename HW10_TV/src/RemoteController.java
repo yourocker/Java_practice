@@ -1,23 +1,24 @@
 public class RemoteController {
     private String model;
-
+    private boolean onTv;
     private Channel channel;
     private TV tv;
 
-    public void setTV(TV tv) {
-        if (this.tv == null) {
-            this.tv = tv;
-            this.tv.setRemoteController(this);
+    public void turnOn(TV tv) {
+        if(!onTv) {
+            if (tv.getChannel(this)) {
+                onTv = true;
+                this.tv = tv;
+            }
         } else {
-            System.err.println("This TV was connected to other remote controller");
+            System.err.println("Канал уже включен");
         }
     }
 
     public RemoteController(String model) {
         this.model = model;
+        this.onTv = false;
     }
 
-    public String getModel() {
-        return model;
-    }
+
 }
