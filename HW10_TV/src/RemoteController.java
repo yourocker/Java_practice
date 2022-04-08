@@ -19,6 +19,4 @@ public class RemoteController {
         this.model = model;
         this.onTv = false;
     }
-
-
 }
