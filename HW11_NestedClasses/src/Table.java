@@ -31,7 +31,7 @@ public class Table {
         }
     }
 
-    private static final int MAX_ENTRIES_COUNT = 10;
+    private static final int MAX_ENTRIES_COUNT = 11;
 
     private TableEntry entries[];
     private int count;

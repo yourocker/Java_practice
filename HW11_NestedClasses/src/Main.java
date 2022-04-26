@@ -6,6 +6,7 @@ public class Main {
         table.put("leisan", 30);
         table.put("volodya", 69);
         table.put("petya", 11);
+        table.put("sanya", 17);
 
         Table.Iterator iterator1 = table.new Iterator();
 
