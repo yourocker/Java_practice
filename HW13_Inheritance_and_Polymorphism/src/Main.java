@@ -1,5 +1,5 @@
 public class Main {
-
+    //INHERITANCE
     public static void main(String[] args) {
         Athlete athlete = new Athlete("Grafov", 30, 5);
         Human yourock = new Human("Yura", 34);
