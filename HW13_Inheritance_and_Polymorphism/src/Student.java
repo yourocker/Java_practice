@@ -1,4 +1,4 @@
-public class Student extends Human {
+public class Student extends Human implements Beneficiary{
     private double averageMark;
 
     public Student(String name, int age, double averageMark) {
@@ -15,6 +15,11 @@ public class Student extends Human {
     @Override
     public void sayName() {
         System.out.println("I am the arm");
+    }
+
+    @Override
+    public void getBenefit() {
+        System.out.println("Thank you my life is peace of shit!!!");
     }
 
     public double getAverageMark() {

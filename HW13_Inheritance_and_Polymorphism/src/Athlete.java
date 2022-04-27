@@ -1,4 +1,4 @@
-public class Athlete extends Human {
+public class Athlete extends Human implements Worker, Beneficiary {
     private static final int ATHLETE_STEP_VALUE_FOR_RUN = 20;
     private static final int DEFAULT_RANK = 0;
 
@@ -25,6 +25,21 @@ public class Athlete extends Human {
     @Override
     public void sayName() {
         System.out.println("I am very strong, my name is " + name);
+    }
+
+    @Override
+    public void work() {
+        System.out.println("Running is my work");
+    }
+
+    @Override
+    public void getSalary() {
+        System.out.println("Give me my money!");
+    }
+
+    @Override
+    public void getBenefit() {
+        System.out.println("Fuck this shit! I have a discount!!! ");
     }
 
     public int getRank() {

@@ -1,4 +1,4 @@
-public class Workman extends Human{
+public class Workman extends Human implements Worker {
     private int experience;
 
     public Workman(String name, int age, int experience) {
@@ -10,8 +10,14 @@ public class Workman extends Human{
         return experience;
     }
 
+    @Override
     public void work() {
         System.out.println("Let`s ROCK!");
+    }
+
+    @Override
+    public void getSalary() {
+        System.out.println("Give me my cash!!!");
     }
 
     @Override
