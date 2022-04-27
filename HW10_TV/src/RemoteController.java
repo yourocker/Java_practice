@@ -5,7 +5,7 @@ public class RemoteController {
     private TV tv;
 
     public void turnOn(TV tv) {
-        if(!onTv) {
+        if (!onTv) {
             if (tv.getChannel(this)) {
                 onTv = true;
                 this.tv = tv;

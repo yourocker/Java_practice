@@ -5,8 +5,9 @@ public class TV {
     private Channel channel;
     private RemoteController remoteController;
 
-    public void getChannel(RemoteController channel) {
+    public boolean getChannel(RemoteController channel) {
         currentChannel = channel;
+        return true;
     }
 
     public TV(String model) {
