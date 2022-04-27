@@ -1,4 +1,4 @@
-public class Human  {
+public abstract class Human  {
     private static final int MIN_AGE = 0;
     private static final int MAX_AGE = 120;
     private static final String DEFAULT_NAME = "DEFAULT_NAME";
@@ -35,6 +35,8 @@ public class Human  {
         System.out.println(name + " run");
         this.stepsCount += STEP_VALUE_FOR_RUN;
     }
+
+    public abstract void sayName();
 
     public String getName() {
         return name;

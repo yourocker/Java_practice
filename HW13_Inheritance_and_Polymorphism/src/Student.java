@@ -12,6 +12,11 @@ public class Student extends Human {
         this.stepsCount += 5;
     }
 
+    @Override
+    public void sayName() {
+        System.out.println("I am the arm");
+    }
+
     public double getAverageMark() {
         return averageMark;
     }

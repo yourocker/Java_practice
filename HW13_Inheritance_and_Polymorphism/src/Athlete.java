@@ -22,6 +22,11 @@ public class Athlete extends Human {
         this.stepsCount += ATHLETE_STEP_VALUE_FOR_RUN;
     }
 
+    @Override
+    public void sayName() {
+        System.out.println("I am very strong, my name is " + name);
+    }
+
     public int getRank() {
         return rank;
     }
