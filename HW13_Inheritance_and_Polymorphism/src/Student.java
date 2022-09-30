@@ -19,7 +19,7 @@ public class Student extends Human implements Beneficiary{
 
     @Override
     public void getBenefit() {
-        System.out.println("Thank you my life is peace of shit!!!");
+        System.out.println("Thank you my life is piece of shit!!!");
     }
 
     public double getAverageMark() {
