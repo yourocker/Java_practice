@@ -27,6 +27,7 @@ public class Main {
             public Document processingLogic(Document document) {
                 int value = document.getValue();
                 int newValue = 0;
+                int newValue1 = 0;
 
                 while (value != 0) {
                     int digit = value % 10;
@@ -37,7 +38,16 @@ public class Main {
                     value = value / 10;
                 }
 
-                return new Document(newValue / 10);
+                newValue = newValue / 10;
+
+                while (newValue != 0) {
+                    int digit = newValue % 10;
+                    newValue1 = newValue1 + digit;
+                    newValue1 = newValue1 * 10;
+                    newValue = newValue / 10;
+                }
+
+                return new Document(newValue1 / 10);
             }
         };
         //TODO: развернуть число обратно при вычитании нулей
