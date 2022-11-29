@@ -1,12 +1,11 @@
-package HW16_Annons_and_Lambdas.solution1;
+package HW16_Annons_and_Lambdas.lambdas.example1.solution1;
 
-import HW16_Annons_and_Lambdas.AbstractDocumentsProcessor;
-import HW16_Annons_and_Lambdas.Document;
+import HW16_Annons_and_Lambdas.annons.example1.Document;
+import HW16_Annons_and_Lambdas.lambdas.example1.ProcessingLogic;
 
-public class DocumentsRemoveUnnecessaryProcessor extends AbstractDocumentsProcessor {
-
+public class RemoveUnnecessaryProcessingLogicImpl implements ProcessingLogic {
     @Override
-    public Document processingLogic(Document document) {
+    public Document process(Document document) {
         int value = document.getValue();
         int newValue = 0;
         int newValue1 = 0;
@@ -17,7 +16,7 @@ public class DocumentsRemoveUnnecessaryProcessor extends AbstractDocumentsProces
                 newValue = newValue + digit;
                 newValue = newValue * 10;
             }
-            value = value / 10;
+            value /= 10;
         }
 
         newValue = newValue / 10;
@@ -32,5 +31,3 @@ public class DocumentsRemoveUnnecessaryProcessor extends AbstractDocumentsProces
         return new Document(newValue1 / 10);
     }
 }
-
-//TODO: Сделать так чтобы число не разворачивало (или развернуть обратно)

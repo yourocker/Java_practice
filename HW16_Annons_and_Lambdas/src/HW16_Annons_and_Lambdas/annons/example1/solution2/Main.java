@@ -1,9 +1,8 @@
-package HW16_Annons_and_Lambdas.solution2;
+package HW16_Annons_and_Lambdas.annons.example1.solution2;
 
-import HW16_Annons_and_Lambdas.AbstractDocumentsProcessor;
-import HW16_Annons_and_Lambdas.Document;
-import HW16_Annons_and_Lambdas.solution1.DocumentsAbbreviatedProcessor;
-import HW16_Annons_and_Lambdas.solution1.DocumentsRemoveUnnecessaryProcessor;
+import HW16_Annons_and_Lambdas.annons.example1.AbstractDocumentsProcessor;
+import HW16_Annons_and_Lambdas.annons.example1.Document;
+import HW16_Annons_and_Lambdas.annons.example1.solution1.DocumentsAbbreviatedProcessor;
 
 public class Main {
 
@@ -50,7 +49,6 @@ public class Main {
                 return new Document(newValue1 / 10);
             }
         };
-        //TODO: развернуть число обратно при вычитании нулей
 
         abbreviatedProcessor.process(d1);
         abbreviatedProcessor.process(d2);
@@ -62,6 +60,11 @@ public class Main {
         abbreviatedProcessor.printDocuments();
 
         removeUnnecessaryProcessor.process(d1);
+        removeUnnecessaryProcessor.process(d2);
+        removeUnnecessaryProcessor.process(d3);
+        removeUnnecessaryProcessor.process(d4);
+        removeUnnecessaryProcessor.process(d5);
+        removeUnnecessaryProcessor.process(d6);
 
         removeUnnecessaryProcessor.printDocuments();
     }

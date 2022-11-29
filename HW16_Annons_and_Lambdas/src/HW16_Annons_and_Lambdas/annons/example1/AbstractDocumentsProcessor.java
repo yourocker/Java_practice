@@ -1,4 +1,4 @@
-package HW16_Annons_and_Lambdas;
+package HW16_Annons_and_Lambdas.annons.example1;
 
 public abstract class AbstractDocumentsProcessor {
     private static final int MAX_PROCESSOR_DOCUMENTS_COUNT = 10;

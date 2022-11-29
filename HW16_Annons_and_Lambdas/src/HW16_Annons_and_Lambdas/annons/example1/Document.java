@@ -1,4 +1,4 @@
-package HW16_Annons_and_Lambdas;
+package HW16_Annons_and_Lambdas.annons.example1;
 
 public class Document {
     private int value;

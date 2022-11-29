@@ -1,6 +1,6 @@
-package HW16_Annons_and_Lambdas.solution1;
+package HW16_Annons_and_Lambdas.annons.example1.solution1;
 
-import HW16_Annons_and_Lambdas.Document;
+import HW16_Annons_and_Lambdas.annons.example1.Document;
 
 public class Main {
 
