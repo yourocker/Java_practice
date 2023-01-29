@@ -16,7 +16,6 @@ public class Main {
         int secondNum = 0;
         char operand = '0';
         int operandCounter = 0;
-        int power = 1;
         boolean arabicNumerals = false;
         boolean romanNumerals = false;
         boolean operands = false;
@@ -44,7 +43,8 @@ public class Main {
         }
 
         if (arabicNumerals && !romanNumerals) {
-        //парсим второе число до символа или пробела
+            //парсим второе число до символа или пробела
+            int power = 1;
             int j = 0;
             for (int i = array.length - 1; i >= 0; i--)
                 if (array[i] == ' ') {
@@ -79,7 +79,7 @@ public class Main {
             StringBuilder secondRomNumber = new StringBuilder();
             int j = 0;
             for (int i = 0; i < array.length; i++) {
-                if (array[i] == ' '){
+                if (array[i] == ' ') {
                     j = i;
                     i = array.length;
                 } else if (array[i] == '+' || array[i] == '-' || array[i] == '/' || array[i] == '*') {
@@ -116,8 +116,7 @@ public class Main {
                 throw new OperandException("формат математической операции не удовлетворяет заданию - два операнда (+, -, /, *)");
             else if (operandCounter > 2)
                 throw new OperandException("формат математической операции не удовлетворяет заданию - более двух операндов (+, -, /, *)");
-        }
-        else {
+        } else {
             throw new OperandException("строка не является математической операцией");
         }
         //обработка исключения систем счислений
@@ -128,7 +127,8 @@ public class Main {
 }
 
 /*
-TODO Разобрать код из одной страницы в классы и процедуры в соответствии с заданием
-TODO Цифры получили, сделать калькулятор))
-TODO Добавить проверку на правильность введения римских цифр (enum?)
+TODO    Разобрать код из одной страницы в классы и процедуры в соответствии с заданием
+        Цифры получили, сделать калькулятор))
+        Добавить проверку на правильность введения римских цифр (enum?)
+        Добавить ограничение по цифрам (<10)
 */
