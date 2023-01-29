@@ -23,12 +23,16 @@ public class NumberAndStringProcessor {
         return new NumberAndStringProcessor(array);
     }
 
-    public int removeZeros(int removeZeros) {
+    public int[] removeZeros(int removeZeros) {
         int newArray[] = new int[array.length];
 
         for (int i = 0; i < array.length; i++) {
-            newArray[i] = removeZeros(array[i]);
+            if (newArray[i] != 0) {
+                newArray[i] = removeZeros(array[i]);
+            }
         }
-        return removeZeros;
+        return newArray;
     }
 }
+
+//TODO RemoveZeroesArray. В массив передать массив чисел и вырубить нули
