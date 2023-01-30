@@ -1,16 +1,14 @@
 package kataacademy.test.solution1;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws OperandException, SymbolException {
-
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        input = input.trim();
-        input = input.toUpperCase(Locale.ROOT);
+    public static String calc(@NotNull String input) throws OperandException, SymbolException {
 
         int firstNum = 0;
         int secondNum = 0;
@@ -41,7 +39,7 @@ public class Main {
             }
 
         }
-
+        //парсер строки с арабскими цифрами
         if (arabicNumerals && !romanNumerals) {
             //парсим второе число до символа или пробела
             int power = 1;
@@ -57,7 +55,6 @@ public class Main {
                     power = 1;
                 } else {
                     secondNum += Character.getNumericValue(array[i]) * power;
-                    System.out.println("значение переменной 2=" + secondNum);
                     power *= 10;
                 }
 
@@ -68,12 +65,11 @@ public class Main {
                     operand = array[i];
                 } else {
                     firstNum += Character.getNumericValue(array[i]) * power;
-                    System.out.println("значение переменной 1=" + firstNum);
                     power *= 10;
                 }
             }
         }
-
+        //парсер строки с римскими цифрами
         if (romanNumerals && !arabicNumerals) {
             StringBuilder firstRomNumber = new StringBuilder();
             StringBuilder secondRomNumber = new StringBuilder();
@@ -99,17 +95,14 @@ public class Main {
                     secondRomNumber.append(array[i]);
                 }
             }
-            RomanNumber romanNumber1 = RomanNumber.valueOf(firstRomNumber.toString());
-            RomanNumber romanNumber2 = RomanNumber.valueOf(secondRomNumber.toString());
-            firstNum = romanNumber1.getNumber();
-            secondNum = romanNumber2.getNumber();
 
-            System.out.println("первая переменная = " + firstNum);
-            System.out.println("вторая переменная = " + secondNum);
+            firstNum = romanToArabic(String.valueOf(firstRomNumber));
+            secondNum = romanToArabic(String.valueOf(secondRomNumber));
+
+            if (firstNum < 1 || firstNum > 10 || secondNum < 1 || secondNum > 10) {
+                throw new SymbolException("введенные римские цифры должны быть в диапазоне от I до X");
+            }
         }
-
-        System.out.println("операнд " + operand);
-
         //обработка исключений по операндам
         if (operands) {
             if (operandCounter == 2)
@@ -123,12 +116,87 @@ public class Main {
         if (romanNumerals && arabicNumerals) {
             throw new SymbolException("используются одновременно разные системы счисления");
         }
+        //обработка по размеру чисел
+        if (firstNum > 10 || secondNum > 10 || firstNum < 1 || secondNum < 1)
+            throw new SymbolException("введенные числа должны быть от 1 до 10");
+
+        //блок калькулятора
+        int tempResult;
+        String result = null;
+        switch (operand) {
+            case '-':
+                tempResult = firstNum - secondNum;
+                result = Integer.toString(tempResult);
+                break;
+            case '+':
+                tempResult = firstNum + secondNum;
+                result = Integer.toString(tempResult);
+                break;
+            case '*':
+                tempResult = firstNum * secondNum;
+                result = Integer.toString(tempResult);
+                break;
+            case '/':
+                tempResult = firstNum / secondNum;
+                result = Integer.toString(tempResult);
+                break;
+        }
+
+        if (romanNumerals) {
+            result = arabicToRoman(Integer.parseInt(result));
+        }
+
+        return result;
+    }
+
+    public static int romanToArabic(@NotNull String input) {
+        String romanNumeral = input.toUpperCase(Locale.ROOT);
+        int result = 0;
+
+        List romanNumerals = RomanNumeral.getReverseSortedValues();
+
+        int i = 0;
+
+        while ((romanNumeral.length() > 0) && (i < romanNumerals.size())) {
+            RomanNumeral symbol = (RomanNumeral) romanNumerals.get(i);
+            if (romanNumeral.startsWith(symbol.name())) {
+                result += symbol.getValue();
+                romanNumeral = romanNumeral.substring(symbol.name().length());
+            } else {
+                i++;
+            }
+        }
+        return result;
+    }
+
+    public static @NotNull String arabicToRoman(int number) throws SymbolException {
+        if ((number <= 0) || (number > 4000)) {
+            throw new SymbolException("в римской системе нет отрицательных чисел");
+        }
+
+        List romanNumerals = RomanNumeral.getReverseSortedValues();
+
+        int i = 0;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        while ((number > 0) && (i < romanNumerals.size())) {
+            RomanNumeral currentSymbol = (RomanNumeral) romanNumerals.get(i);
+            if (currentSymbol.getValue() <= number) {
+                stringBuilder.append(currentSymbol.name());
+                number -= currentSymbol.getValue();
+            } else {
+                i++;
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+    public static void main(String[] args) throws OperandException, SymbolException {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        input = input.trim();
+        input = input.toUpperCase(Locale.ROOT);
+
+        System.out.println(calc(input));
     }
 }
-
-/*
-TODO    Разобрать код из одной страницы в классы и процедуры в соответствии с заданием
-        Цифры получили, сделать калькулятор))
-        Добавить проверку на правильность введения римских цифр (enum?)
-        Добавить ограничение по цифрам (<10)
-*/
