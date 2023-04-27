@@ -1,4 +1,4 @@
-package kataacademy.test.solution1;
+package kataacademy.test;
 
 public class SymbolException extends Exception{
     public SymbolException (String description) {

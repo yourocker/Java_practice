@@ -1,4 +1,4 @@
-package kataacademy.test.solution1;
+package kataacademy.test;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,7 +22,7 @@ public class Main {
 
         //проверяем строку на арабские цифры, римские цифры и операнды
         for (char c : array) {
-            //arabic numerals
+                //arabic numerals
             if (c >= 48 && c < 58) {
                 arabicNumerals = true;
                 //roman numerals

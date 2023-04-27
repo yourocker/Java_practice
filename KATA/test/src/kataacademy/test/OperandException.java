@@ -1,4 +1,4 @@
-package kataacademy.test.solution1;
+package kataacademy.test;
 
 public class OperandException extends Exception {
     public OperandException (String description) {

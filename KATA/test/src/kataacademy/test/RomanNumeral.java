@@ -1,4 +1,4 @@
-package kataacademy.test.solution1;
+package kataacademy.test;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -19,7 +19,7 @@ public enum RomanNumeral {
     public int getValue() {
         return value;
     }
-
+    //возрващает
     public static List getReverseSortedValues() {
         return Arrays.stream(values())
                 .sorted(Comparator.comparing((RomanNumeral e) -> e.value).reversed())
